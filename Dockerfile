@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
-MAINTAINER Vincent Robert <vincent.robert@genezys.net>
+# based on Vincent Robert <vincent.robert@genezys.net> initial Dockerfile
+MAINTAINER Gauvain Pocentek <gauvain@pocentek.net>
 
 # Install required packages
 RUN apt-get install -qy --no-install-recommends \
@@ -8,7 +9,7 @@ RUN apt-get install -qy --no-install-recommends \
       curl \
     && curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash \
     && apt-get install -qy --no-install-recommends \
-      gitlab-ce=7.10.4~omnibus.1-1
+      gitlab-ce=8.3.4-ce.0
 
 # Manage SSHD through runit
 RUN mkdir -p /opt/gitlab/sv/sshd/supervise \

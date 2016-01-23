@@ -26,13 +26,13 @@ The directories on data container are:
 Create the data container with:
 
 ```bash
-sudo docker run --name gitlab_data --volume /var/opt/gitlab --volume /var/log/gitlab --volume /etc/gitlab genezys/gitlab:7.10.4 /bin/true
+sudo docker run --name gitlab_data --volume /var/opt/gitlab --volume /var/log/gitlab --volume /etc/gitlab genezys/gitlab:8.3.4 /bin/true
 ```
 
 After creating this, run GitLab:
 
 ```bash
-sudo docker run --detach --name gitlab_app --publish 8080:80 --publish 2222:22 --volumes-from gitlab_data genezys/gitlab:7.10.4
+sudo docker run --detach --name gitlab_app --publish 8080:80 --publish 2222:22 --volumes-from gitlab_data genezys/gitlab:8.3.4
 ```
 
 It might take a while before the docker container is responding to queries. You can follow the configuration process with `docker logs -f gitlab_app`.
