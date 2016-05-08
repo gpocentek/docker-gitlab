@@ -3,7 +3,8 @@ FROM ubuntu:14.04
 MAINTAINER Gauvain Pocentek <gauvain@pocentek.net>
 
 # Install required packages
-RUN apt-get install -qy --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -qy --no-install-recommends \
       openssh-server \
       ca-certificates \
       curl \
