@@ -19,6 +19,9 @@ RUN mkdir -p /opt/gitlab/sv/sshd/supervise \
     && ln -s /opt/gitlab/sv/sshd /opt/gitlab/service \
     && mkdir -p /var/run/sshd
 
+# Default root password
+RUN echo "gitlab_rails['initial_root_password'] = '5iveL!fe'" >> /etc/gitlab/gitlab.rb
+
 # Expose web & ssh
 EXPOSE 80 22
 
