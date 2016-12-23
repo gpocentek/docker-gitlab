@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 # based on Vincent Robert <vincent.robert@genezys.net> initial Dockerfile
 MAINTAINER Gauvain Pocentek <gauvain@pocentek.net>
 
