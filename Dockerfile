@@ -8,6 +8,7 @@ RUN apt-get update \
       openssh-server \
       ca-certificates \
       curl \
+      tzdata \
     && curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash \
     && apt-get install -qy --no-install-recommends \
       gitlab-ce=9.2.1-ce.0
