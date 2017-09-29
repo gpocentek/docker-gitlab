@@ -23,10 +23,10 @@ RUN mkdir -p /opt/gitlab/sv/sshd/supervise \
 
 # Default root password
 RUN echo "gitlab_rails['initial_root_password'] = '5iveL!fe'" >> /etc/gitlab/gitlab.rb
+RUN sed -i "s,^external_url.*,external_url 'http://gitlab.test'," /etc/gitlab/gitlab.rb
 
 # Expose web & ssh
 EXPOSE 80 22
 
 # Default is to run runit & reconfigure
 CMD sleep 3 && gitlab-ctl reconfigure & /opt/gitlab/embedded/bin/runsvdir-start
-
