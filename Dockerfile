@@ -22,8 +22,10 @@ RUN mkdir -p /opt/gitlab/sv/sshd/supervise \
     && mkdir -p /var/run/sshd
 
 # Default root password
-RUN echo "gitlab_rails['initial_root_password'] = '5iveL!fe'" >> /etc/gitlab/gitlab.rb
-RUN sed -i "s,^external_url.*,external_url 'http://gitlab.test'," /etc/gitlab/gitlab.rb
+RUN echo "gitlab_rails['initial_root_password'] = '5iveL!fe'" >> /etc/gitlab/gitlab.rb; \
+    sed -i "s,^external_url.*,external_url 'http://gitlab.test'," /etc/gitlab/gitlab.rb; \
+    echo 'pages_external_url "http://pages.gitlab.lxd/"' >> /etc/gitlab/gitlab.rb; \
+    echo "gitlab_pages['enable'] = true" >> /etc/gitlab/gitlab.rb
 
 # Expose web & ssh
 EXPOSE 80 22
